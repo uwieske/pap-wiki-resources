@@ -1,0 +1,18 @@
+name: papenv
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+#      - pycodestyle
+#      - pylint
+      - pdoc3
+      - flake8
+      - numpy
+      - pandas
+      - lxml
+      - beautifulsoup4
+      - wikiextractor
+      - jupyterlab
