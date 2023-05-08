@@ -46,7 +46,6 @@ def convert_to_pandas(src):
                                   src],
                                  check=False,
                                  stdout=subprocess.PIPE,
-                                 # stderr=subprocess.STDOUT,
                                  text=True)
     if proc_result.returncode != 0:
         print(proc_result.stderr)
