@@ -87,7 +87,6 @@ def extract_texts_to_pandas(source: str, dest_dir: str) -> None:
     if Path(source).is_dir():
         # convert all files in dir
         for root, _, files in os.walk(source):
-            print(len(files))
             for f in files:
                 if Path(f).suffix == '.bz2':
                     full_file_path = str(Path.joinpath(Path(root), Path(f)))
@@ -106,7 +105,7 @@ if __name__ == '__main__':
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('--src', help='the dump file or the directory containing dump files containing texts from '
-                                      'Wikipedia.', required=True )
+                                      'Wikipedia.', required=True)
     parser.add_argument('--output_dir', help='the output directory where extracted texts wil be saved in.',
                         required=True )
     args = parser.parse_args()
