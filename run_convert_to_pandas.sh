@@ -2,9 +2,9 @@
 CONTAINER_NAME=papwikires
 MOUNT_DIR=$1
 SRC_DUMP=$2
-if [ "$2" = "." ];
+if [ $# -eq 1 ];
 then
-  PRG_CMD="python -m papwikires.data_acquisition  --output_dir /data"
+  PRG_CMD="python -m papwikires.data_acquisition --src /data --output_dir /data"
 else
   PRG_CMD="python -m papwikires.data_acquisition --src /data/$SRC_DUMP --output_dir /data"
 fi

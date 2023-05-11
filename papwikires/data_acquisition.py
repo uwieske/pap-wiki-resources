@@ -106,7 +106,7 @@ if __name__ == '__main__':
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('--src', help='the dump file or the directory containing dump files containing texts from '
-                                      'Wikipedia.', required=False, default='/data')
+                                      'Wikipedia.', required=True )
     parser.add_argument('--output_dir', help='the output directory where extracted texts wil be saved in.',
                         required=True )
     args = parser.parse_args()
