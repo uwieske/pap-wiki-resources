@@ -1,7 +1,11 @@
 #!/bin/bash
 CONTAINER_NAME=papwikires
-SOURCE_DIR=$1
-DUMP_FILE=$2
-PRG_CMD="python -m papwikires.data_acquisition --src_file /data/$DUMP_FILE --output_dir /data"
-
-docker build -t $CONTAINER_NAME . && docker run --rm -it -v $SOURCE_DIR:/data $CONTAINER_NAME $PRG_CMD
+MOUNT_DIR=$1
+SRC_DUMP=$2
+if [ "$2" = "." ];
+then
+  PRG_CMD="python -m papwikires.data_acquisition  --output_dir /data"
+else
+  PRG_CMD="python -m papwikires.data_acquisition --src /data/$SRC_DUMP --output_dir /data"
+fi
+docker build -t $CONTAINER_NAME . && docker run --rm -it -v $MOUNT_DIR:/data $CONTAINER_NAME $PRG_CMD
